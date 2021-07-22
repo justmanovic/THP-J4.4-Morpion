@@ -7,36 +7,52 @@ class Positions
  attr_accessor :moves
 
   def initialize
-    # @moves = [[nil]*3]*3
-    # @moves = [["", "", ""], ["", "", ""], ["", "", ""]]
-    @moves = Array.new(3) {Array.new(3)}
+    # @moves = Array.new(3) {Array.new(3)}
+    @moves = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]
   end
 
-  # def new_move(choice_l,choice_c, player)
-  #   @moves[choice_l][choice_c] = player.name
-  #   # if @moves[choice_l].is_empty?
-  #   #   @moves[choice_l][choice_c] = player 
-  #   # end
-  #   print @moves
-  #   puts
-  # end
-
-  # def is_empty?(case)
-  #   @moves[case]
-  # end
+  def not_available?(line,col)
+    @moves[line][col] != " "
+  end
 
   def table_has_winner?
     tab_victory = [diag_0_completed?, diag_1_completed?, line_0_completed?, line_1_completed?, line_2_completed?, vertical_0_completed?, vertical_1_completed?, vertical_2_completed?]
-    tab_victory.each do |test_result|
-      test_result != nil ? (return test_result) : (return nil)
-    end
+    # binding.pry
+    return tab_victory.join.delete(" ")
+    # winner = nil
+    # tab_victory.each do |test_result|
+    #   if test_result != nil
+    #     winner = test_result
+    #   else
+    #     break
+    #   end
+    # end
+
+  end
+
+  def check_choice?(line,col)
+    return in_board?(line,col) && !not_available?(line,col)
+  end
+
+  def in_board?(line,col)
+    return line >= 0 && line <=2 && col >= 0 && col <= 2
+  end
+
+  def print_board
+    print @moves[0]
+    puts
+    print @moves[1]
+    puts
+    print @moves[2]
+    puts
+    puts
   end
 
   def table_is_full?
     i = 0
     @moves.each do |lines|
       lines.each do |cell|
-        i += 1 if cell == ""
+        i += 1 if cell == " "
       end
     end
 
