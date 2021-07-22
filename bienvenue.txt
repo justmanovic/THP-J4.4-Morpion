@@ -1,0 +1,9 @@
+----------------------------------------------------       
+|    Bienvenue !                                    |
+|    Ceci est un jeu révolutionnaire...             |
+|    Son petit nom ? le MORPION.                    |
+|    Ce jeu va tout simplement changer votre vie.   |            
+|    Voyez plutôt !                                 |
+|    Amusez-vous bien !                             |
+----------------------------------------------------       
+
