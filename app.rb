@@ -5,15 +5,12 @@ require_relative 'lib/app/positions'
 require_relative 'lib/app/player'
 require_relative 'lib/app/board'
 
-
-
-
 bienvenue_message = File.read("bienvenue.txt")
 print bienvenue_message
 puts "Player 1, quel est ton prénom ? \n"
 player_1 = Player.new(gets.chomp)
 puts "Player 2, quel est ton prénom ? \n"
-player_2 = Player.new(gets.chomp)
+player_2 = Player.new(gets.chomp)g
 player_wants_to_play = true
 
 while player_wants_to_play == true
