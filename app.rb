@@ -10,7 +10,7 @@ print bienvenue_message
 puts "Player 1, quel est ton prénom ? \n"
 player_1 = Player.new(gets.chomp)
 puts "Player 2, quel est ton prénom ? \n"
-player_2 = Player.new(gets.chomp)g
+player_2 = Player.new(gets.chomp)
 player_wants_to_play = true
 
 while player_wants_to_play == true
@@ -28,7 +28,7 @@ while player_wants_to_play == true
   end
 
   system("clear")
-  if new_game.table_has_winner? != " "
+  if new_game.table_has_winner? != ""
     puts "Le gagnant est"
     puts "*-" *20+"*"
     puts "*"+" "*39+"*"
