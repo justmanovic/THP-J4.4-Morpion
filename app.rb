@@ -23,7 +23,11 @@ player_wants_to_play = true
 game_nb = 0
 
 while player_wants_to_play
-  puts "Partie n° #{game_nb+1} :\n"
+  print "\nPartie n° #{game_nb+1} :\n\nLoading..."
+  100.times do
+    print '.'
+    sleep(0.02)
+  end
   new_game = Positions.new
   new_board = Board.new(new_game)
   
@@ -66,7 +70,6 @@ while player_wants_to_play
 
 
   restart = gets.chomp
-  puts restart
   restart == "y" ? player_wants_to_play = true : player_wants_to_play = false
 
   game_nb +=1
