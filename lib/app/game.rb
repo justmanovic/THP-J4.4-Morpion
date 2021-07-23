@@ -1,13 +1,21 @@
-#require csv
+require_relative "positions"
+require_relative "board"
+
 
 # commentaires sur la classe
 class Game
- attr_accessor :attribut1, :attribut2
+ attr_accessor :game, :board
 
-  def initialize(attribut1_param, attribut2_param)
-    @attribut1 = attribut1_param
-    @attribut2 = attribut2_param
+  def initialize(game_var,board_var)
+    @game = game_var
+    @board = board_var
   end
+
+  def start_game(game,board)
+    game = Positions.new
+    board = Board.new(game)
+  end
+
 
   def start
   end 

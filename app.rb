@@ -4,16 +4,26 @@ Bundler.require
 require_relative 'lib/app/positions'
 require_relative 'lib/app/player'
 require_relative 'lib/app/board'
+require_relative "lib/views/affichage"
+
 
 bienvenue_message = File.read("bienvenue.txt")
 print bienvenue_message
 puts "Player 1, quel est ton prénom ? \n"
 player_1 = Player.new(gets.chomp)
 puts "Player 2, quel est ton prénom ? \n"
-player_2 = Player.new(gets.chomp)g
+player_2 = Player.new(gets.chomp)
+
+# affichage_debut_partie("hello")
 player_wants_to_play = true
 
-while player_wants_to_play == true
+# affichage = Affichage.new
+
+player_wants_to_play = true
+game_nb = 0
+
+while player_wants_to_play
+  puts "Partie n° #{game_nb+1} :\n"
   new_game = Positions.new
   new_board = Board.new(new_game)
   
@@ -28,7 +38,8 @@ while player_wants_to_play == true
   end
 
   system("clear")
-  if new_game.table_has_winner? != " "
+  if new_game.table_has_winner? != ""
+    new_board.print_board
     puts "Le gagnant est"
     puts "*-" *20+"*"
     puts "*"+" "*39+"*"
@@ -39,8 +50,9 @@ while player_wants_to_play == true
     puts "*"+"Bravo à toi !".center(39)+"*"
     puts "*"+" "*39+"*"
     puts "*-" *20+"*"
+
   else 
-    puts "Le gagnant est"
+    new_board.print_board
     puts "*-" *20+"*"
     puts "*"+" "*39+"*"
     puts "*"+"What a close game! Match nul !!!".center(39)+"*"
@@ -58,7 +70,10 @@ while player_wants_to_play == true
   puts restart
   restart == "y" ? player_wants_to_play = true : player_wants_to_play = false
 
+  game_nb +=1
 
 end
 
 puts "A bientôt !"
+
+

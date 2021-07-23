@@ -17,10 +17,6 @@ class Positions
 
   def table_has_winner?
     tab_victory = [diag_0_completed?, diag_1_completed?, line_0_completed?, line_1_completed?, line_2_completed?, vertical_0_completed?, vertical_1_completed?, vertical_2_completed?]
-    # binding.pry
-    # print tab_victory
-    # puts
-    # sleep(3)
     return tab_victory.join.delete(" ")
   end
 
@@ -39,9 +35,7 @@ class Positions
         i += 1 if cell == " "
       end
     end
-
     return i == 0 ? true : false
-    
   end
 
   def diag_0_completed?
