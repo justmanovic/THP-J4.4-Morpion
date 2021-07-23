@@ -39,7 +39,6 @@ while player_wants_to_play
 
   system("clear")
   if new_game.table_has_winner? != ""
-    new_board.print_board
     puts "Le gagnant est"
     puts "*-" *20+"*"
     puts "*"+" "*39+"*"
